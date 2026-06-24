@@ -1,4 +1,4 @@
-import { SortState } from "./sorting";
+import { SortState } from "./sorting-types";
 
 export function generateInsertionSortSteps(initialArray: number[]): SortState[] {
   const steps: SortState[] = [];
