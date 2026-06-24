@@ -125,4 +125,3 @@ export function generateQuickSortSteps(initialArray: number[]): SortState[] {
   return steps;
 }
 
-export type { SortState } from "./sorting";
