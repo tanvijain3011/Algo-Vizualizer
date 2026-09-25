@@ -8,10 +8,21 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useVisualizer } from "@/hooks/use-visualizer";
 import { generateLinearSearchSteps, generateBinarySearchSteps } from "@/algorithms/searching";
+import type { SearchState } from "@/algorithms/searching";
 
 type AlgorithmType = "linear" | "binary";
 
-const ALGORITHMS: Record<AlgorithmType, { name: string, fn: any, info: any }> = {
+type AlgorithmMeta = {
+  name: string;
+  fn: (initialArray: number[], target: number) => SearchState[];
+  info: {
+    time: { best: string; avg: string; worst: string };
+    space: string;
+    desc: string;
+  };
+};
+
+const ALGORITHMS: Record<AlgorithmType, AlgorithmMeta> = {
   linear: {
     name: "Linear Search",
     fn: generateLinearSearchSteps,

@@ -7,10 +7,21 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useVisualizer } from "@/hooks/use-visualizer";
 import { generateBubbleSortSteps, generateSelectionSortSteps, generateInsertionSortSteps, generateMergeSortSteps, generateQuickSortSteps } from "@/algorithms/sorting";
+import type { SortState } from "@/algorithms/sorting";
 
 type AlgorithmType = "bubble" | "selection" | "insertion" | "merge" | "quick";
 
-const ALGORITHMS: Record<AlgorithmType, { name: string, fn: any, info: any }> = {
+type AlgorithmMeta = {
+  name: string;
+  fn: (initialArray: number[]) => SortState[];
+  info: {
+    time: { best: string; avg: string; worst: string };
+    space: string;
+    desc: string;
+  };
+};
+
+const ALGORITHMS: Record<AlgorithmType, AlgorithmMeta> = {
   bubble: {
     name: "Bubble Sort",
     fn: generateBubbleSortSteps,

@@ -1,4 +1,6 @@
-export type { SortState } from "./sorting-types";
+import type { SortState } from "./sorting-types";
+
+export type { SortState };
 
 export function generateBubbleSortSteps(initialArray: number[]): SortState[] {
   const steps: SortState[] = [];
